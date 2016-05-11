@@ -1,0 +1,19 @@
+{
+  "name": "jquery-weui",
+  "homepage": "https://github.com/alpha1130/jquery-weui",
+  "authors": [
+    "leohu <cqleohu@qq.com>"
+  ],
+  "description": "jquery plugins for weui",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "jquery",
+    "weui"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "weui": "*",
+    "jquery": "jQuery#~2.1.4"
+  }
+}
