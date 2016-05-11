@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>weui example</title>
+    <link rel="stylesheet" href="bower_components/weui/dist/style/weui.css"/>
+</head>
+<body>
+
+button
+
+<div class="weui_btn_area">
+<a id="toast" class="weui_btn weui_btn_primary">toast</a>
+<a id="loading" class="weui_btn weui_btn_primary">loading</a>
+<a id="confirm" class="weui_btn weui_btn_primary">confirm</a>
+<a id="alert" class="weui_btn weui_btn_primary">alert</a>
+<a id="actionSheet" class="weui_btn weui_btn_primary">actionSheet</a>
+<a class="weui_btn weui_btn_warn">按钮Warn</a>
+</div>
+
+<div class="weui_btn_area weui_btn_area_inline">
+    <a class="weui_btn weui_btn_primary">Primary</a>
+    <a class="weui_btn weui_btn_primary">Primary</a>
+    <a class="weui_btn weui_btn_primary">Primary</a>
+</div>
+
+Cell
+
+<div class="weui_cells_title">带说明的列表项</div>
+<div class="weui_cells">
+    <div class="weui_cell">
+        <div class="weui_cell_bd weui_cell_primary">
+            标题文字
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            2015-11-11
+        </div>
+        <div class="weui_cell_ft">
+            查看
+        </div>
+    </div>
+</div>
+
+<div class="weui_cells_title">带图标说明</div>
+<div class="weui_cells">
+    <div class="weui_cell">
+        <div class="weui_cell_hd">
+            <img src="" alt="icon" style="width:20px;margin-right: 5px;display:block">
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <p>cell standard</p>
+        </div>
+        <div class="weui_cell_ft">
+            说明
+        </div>
+    </div>
+
+</div>
+
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="assets/js/extends.weui.js"></script>
+<script>
+$('#toast').click(function(){
+    WEUI.toast("hahaha");
+});
+
+$('#loading').click(function(){
+    WEUI.loading.show("正在加载");
+    console.log("loading show");
+    setTimeout(function(){
+        WEUI.loading.hide();
+        console.log("loading hide");
+    },2000);
+})
+
+$('#confirm').click(function(){
+    WEUI.confirm('title', 'content',
+    function(){
+        console.log("confirm confirmed");
+    },
+    function(){
+        console.log("confirm canceled");
+    })
+})
+
+$('#alert').click(function(){
+    WEUI.alert('title', 'content', function(){
+        console.log("alert confirm");
+    });
+})
+
+$('#actionSheet').click(function(){
+    WEUI.actionSheet(
+    [
+        '名字',
+        '性别',
+        '年龄'
+    ],
+    function(e){
+        console.log(e);
+    });
+});
+
+
+function defArg(str){
+    str = str || "default";
+}
+
+function defArgs(options) {
+    var defaultOptions = {
+        age: 18,
+        gender: "male",
+        height: 110,
+        address: "empty"
+    }
+
+    for(prop in defaultOptions) {
+        options[prop] = options[prop] || defaultOptions[prop];
+    }
+
+    options.age;
+}
+
+
+var num = 3/4;
+console.log
+// 3.1
+// Math.round(num);
+// num | 0;
+</script>
+
+
+
+
+</body>
+</html>
